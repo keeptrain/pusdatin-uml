@@ -1,0 +1,46 @@
+@startuml
+left to right direction
+
+' Aktor
+actor "User" as usr
+actor "Administrator" as adm
+actor "Manager" as ps
+
+' Sub-diagram untuk User Interaction
+package "User Interaction" {
+    usecase "Login" as login
+    usecase "Check syarat pembuatan" as csp
+    usecase "Buat layanan" as UC5
+    usecase "Check status layanan" as UC6
+    usecase "Revisi" as rl
+}
+
+' Sub-diagram untuk Surat Management
+package "Services Management" {
+    usecase "Management surat" as UC2
+    usecase "Management surats" as ms
+}
+
+' Sub-diagram untuk Admin Management
+package "Admin Management" {
+    usecase "Management User" as UC1
+    usecase "Backup surat" as UC7
+}
+
+' Hubungan antara aktor dan sub-diagram
+usr --> login : Akses sistem
+usr --> csp
+usr --> UC6
+usr --> UC5 : Membuat surat baru
+usr --> rl
+
+adm --> UC1 : Kelola data pengguna
+adm --> UC7 : Backup data surat
+
+ps --> UC2
+
+' Hubungan antar sub-diagram
+UC5 ..> UC2 : Kirim untuk diverifikasi
+UC2 ..> UC6 : Update status ke user
+
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+
+actor "Aktor Kiri" as actorKiri
+actor "Aktor Kanan" as actorKanan
+
+rectangle "Sistem" {
+    (*) --> "Proses 1"
+    
+}
+@enduml

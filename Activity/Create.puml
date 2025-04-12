@@ -1,0 +1,10 @@
+@startuml
+
+start
+:Create service;
+:Input requirement;
+if(input requirement file > 1 mb) then (yes)
+stop    
+
+end
+@enduml
