@@ -1,0 +1,7 @@
+@startuml "test.puml"
+:User: --> (Use)
+:Admin: --> (Use)
+
+"Test" as (Use)
+"Use the application" as (Use)
+@enduml
